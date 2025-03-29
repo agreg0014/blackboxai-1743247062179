@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Learning Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-indigo-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-white text-xl font-bold">LMS Dashboard</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <span id="user-info" class="text-white mr-4"></span>
+                    <button id="logout-btn" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <!-- Admin Dashboard -->
+        <div id="admin-dashboard" class="hidden">
+            <h2 class="text-2xl font-bold mb-4">Admin Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Manage Users</h3>
+                                <p class="text-sm text-gray-500">Add, edit, or remove users</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                                <i class="fas fa-book text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Manage Courses</h3>
+                                <p class="text-sm text-gray-500">Create and manage courses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                                <i class="fas fa-cog text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">System Settings</h3>
+                                <p class="text-sm text-gray-500">Configure system settings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teacher Dashboard -->
+        <div id="teacher-dashboard" class="hidden">
+            <h2 class="text-2xl font-bold mb-4">Teacher Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i class="fas fa-chalkboard-teacher text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">My Courses</h3>
+                                <p class="text-sm text-gray-500">Manage your courses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                                <i class="fas fa-tasks text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Assignments</h3>
+                                <p class="text-sm text-gray-500">Create and grade assignments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-pink-500 rounded-md p-3">
+                                <i class="fas fa-comments text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Student Discussions</h3>
+                                <p class="text-sm text-gray-500">Moderate discussions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Dashboard -->
+        <div id="student-dashboard" class="hidden">
+            <h2 class="text-2xl font-bold mb-4">Student Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                                <i class="fas fa-book-open text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">My Courses</h3>
+                                <p class="text-sm text-gray-500">View enrolled courses</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i class="fas fa-clipboard-list text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Assignments</h3>
+                                <p class="text-sm text-gray-500">View and submit assignments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="p-5">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                                <i class="fas fa-chart-line text-white"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Progress</h3>
+                                <p class="text-sm text-gray-500">Track your progress</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
